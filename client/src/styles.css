@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+/* custom css goes here*/
+
+/* File Name: ZeyuMaAssignment01
+   Student's Name: Zeyu Ma
+   StudentID: 300737060
+   Date: 02/12/2019 */
+
+.divMain {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 0.5%;
+  background: rgba(223, 229, 233, 0.548);
+  z-index: 1;
+  font-family: Verdana, Geneva, sans-serif;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+}
+
+.divSideCell {
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 45%;
+  line-height: 30px;
+  z-index: 1;
+  text-align: left;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* color: #f0f8ff; */
+}
+
+.divPanelCell {
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 10%;
+  line-height: 30px;
+  z-index: 1;
+  text-align: left;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* color: #f0f8ff; */
+}
+
+.divMidCell {
+  width: 10%;
+}
+
+.divCellImg {
+  width: 100%;
+  margin: auto;
+  opacity: 1;
+  z-index: 1;
+}
+
+.profileCard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+}
+
+.myTitle {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.profilePic {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.contactForm {
+  width: 500px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: #6d7212;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 5px #ccc;
+}
+
+body {
+  background-image: url("/assets/EnhancementPics/2049_by_SZDLa.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
