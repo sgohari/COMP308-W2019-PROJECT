@@ -1,9 +1,10 @@
 // IIFE -- Immediately Invoked Function Expression
-
-/* File Name: ZeyuMaAssignment01
-   Student's Name: Zeyu Ma
-   StudentID: 300737060
-   Date: 02/12/2019 */
+/* Author: Tom Tsiliopoulos
+      Project Part 2 Modified by: Team Musketeer
+      Members: Zeyu Ma 300737060
+               Syed Nasir Gohary 300937424
+               Abubakir Myrzaly 300931945
+               Sushmita Nandalan 300923159 */
 
 (function() {
   function Start() {
