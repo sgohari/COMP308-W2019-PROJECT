@@ -70,7 +70,7 @@ module.exports.processLoginPage = (req, res, next) => {
     }
     // is there a user login error?
     if(!user) {
-      return res.json({success: false, msg: 'ERROR: Failed to Log In User!'});
+      return res.json({success: false, msg: 'ERROR: Login failed!'});
     }
     req.logIn(user, (err) => {
       // server error?
@@ -90,7 +90,7 @@ module.exports.processLoginPage = (req, res, next) => {
       });
 
 
-      return res.json({success: true, msg: 'User Logged in Successfully!', user: {
+      return res.json({success: true, msg: 'Welcome to our Survey Page!', user: {
         id: user._id,
         displayName: user.displayName,
         username: user.username,
@@ -130,19 +130,19 @@ module.exports.processRegisterPage = (req, res, next) => {
     if (err) {
       console.log("Error: Inserting New User");
       if (err.name == "UserExistsError") {
-        console.log("Error: User Already Exists!");
+        console.log("Error: Our Records indicate, user is already exist!!");
       }
-      return res.json({success: false, msg: 'ERROR: Failed to Register User!'});
+      return res.json({success: false, msg: 'ERROR: Can not register!'});
     } else {
       // if no error exists, then registration is successful
 
       // redirect the user
-      return res.json({success: true, msg: 'User Registered Successfully!'});
+      return res.json({success: true, msg: 'You are Registred!'});
     }
   });
 };
 
 module.exports.performLogout = (req, res, next) => {
   req.logout();
-  res.json({success: true, msg: 'User Successfully Logged out!'});
+  res.json({success: true, msg: 'Thank you for visiting our website'});
 };
