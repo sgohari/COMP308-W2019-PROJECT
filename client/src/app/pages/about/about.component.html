@@ -4,9 +4,124 @@
               Syed Nasir Gohary 300937424
               Abubakir Myrzaly 300931945
               Sushmita Nandalan 300923159  -->
-<app-base-page></app-base-page>>
-<div class="container">
-  <div class="divMain">
+<app-base-page></app-base-page>
 
+<div class="container">
+  <div class="main">
+    <div class="row">
+      <div class="col-6 text-right">
+        Select Survey:
+        <select [(ngModel)]="surveyName" (change)="loadSurvey(surveyName)">
+          <option *ngFor="let survey of surveys" [value]="survey.id">{{survey.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div id="survey">
+      <h2 class="text-center font-weight-normal">{{survey.name}}</h2>
+      <hr />
+      <h4 class="text-center font-weight-normal">{{survey.description}}</h4>
+      <hr />
+
+      <div *ngIf="mode=='survey' && survey">
+        <div *ngFor="let question of filteredQuestions;">
+          <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
+          <!-- <div *ngIf="property.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div> -->
+          <h3 class="font-weight-normal">{{pager.index + 1}}.
+            <span [innerHTML]="question.name"></span>
+          </h3>
+          <div class="row text-left options">
+            <div class="col-6" *ngFor="let choice of question.choices">
+              <div class="option">
+                <label class="font-weight-normal" [attr.for]="choice.id">
+                  <input id="{{choice._id}}" type="checkbox" [(ngModel)]="choice.selected" (change)="onSelect(question, choice);" /> {{choice.name}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="text-center">
+          <button class="btn btn-primary" (click)="goTo(0);">First</button>
+          <button class="btn btn-primary" (click)="goTo(pager.index - 1);">Prev</button>
+          <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button>
+          <button class="btn btn-primary" (click)="goTo(pager.count - 1);">Last</button>
+          <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+        </div>
+      </div>
+
+      <!-- <div class="row text-center" *ngIf="mode=='review'">
+        <div class="col-4 cursor-pointer" *ngFor="let question of survey.questions; let index = index;">
+          <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered(question) }}</div>
+        </div>
+      </div> -->
+      <div class="result" *ngIf="mode=='result'">
+        <h2>Survey Result</h2>
+        <div *ngFor="let question of survey.questions; let index = index">
+          <div class="result-question">
+            <h5>{{index + 1}}. {{question.name}}</h5>
+            <div class="row">
+              <div class="col-6" *ngFor="let Choice of question.choices">
+                <input id="{{Choice.id}}" type="checkbox" disabled="disabled" [(ngModel)]="Choice.selected" /> {{Choice.name}}
+              </div>
+            </div>
+            <!-- <div class="p-1 m-2 alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</div> -->
+          </div>
+        </div>
+        <!-- <h4 class="alert alert-info text-center">You may close this window now.</h4> -->
+      </div>
+      <hr />
+      <div *ngIf="mode!='result'">
+        <!-- <button class="btn btn-info" (click)="mode = 'review'">Review</button> -->
+        <button class="btn btn-primary" (click)="onSubmit();">Submit Survey</button>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
+
+<!-- <div class="container">
+  <div class="divMain">
+
+      <div class="col-6 text-right">
+          Select Quiz:
+          <select [(ngModel)]="surveyName" (change)="loadSurvey(surveyName)">
+            <option *ngFor="let quiz of surveys" [value]="quiz.id">{{quiz.name}}</option>
+          </select>
+        </div>
+
+    <div id="survey">
+      <div *ngIf="mode == 'survey' && survey">
+        <div *ngFor="let question of filteredQuestions">
+          <div class="badge badge-info">
+            Question {{ pager.index + 1 }} of {{ pager.count }}.
+          </div>
+          <div *ngIf="property.duration" class="badge badge-info float-right">
+            Time: {{ ellapsedTime }} / {{ duration }}
+          </div>
+          <h3 class="font-weight-normal">
+            {{ pager.index + 1 }}.
+            <span [innerHTML]="question.name"></span>
+          </h3>
+          <div class="row text-left options">
+            <div class="col-6" *ngFor="let choice of question.choices">
+              <div class="choice">
+                <label class="font-weight-normal" [attr.for]="choice.id">
+                  <input
+                    id="{{ choice.id }}"
+                    type="checkbox"
+                    [(ngModel)]="choice.selected"
+                    (change)="onSelect(question, choice)"
+                  />
+                  {{ choice.name }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
