@@ -7,7 +7,7 @@ let surveySchema = mongoose.Schema({
     questions: [{
         qName: String,
         choices: [{
-            cName
+            cName: String,
         }]
     }]
 },
