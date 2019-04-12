@@ -9,6 +9,9 @@ import { BasePageComponent } from 'src/app/partials/base-page/base-page.componen
 import { ActivatedRoute } from '@angular/router';
 import { Survey, Choice, Question } from 'src/app/models';
 import { SurveyService } from 'src/app/services/survey.service';
+import { Surveyjson } from 'src/app/models/surveyjson';
+import { Questionjson } from 'src/app/models/questionjson';
+import { Choicejson } from 'src/app/models/choicejson';
 
 @Component({
   selector: 'app-about',
@@ -17,36 +20,18 @@ import { SurveyService } from 'src/app/services/survey.service';
   providers: [SurveyService]
 })
 export class AboutComponent extends BasePageComponent implements OnInit {
-  surveys: any[];
-  survey: Survey = new Survey(null);
+
+  surveysjson: any[];
+  surveyjson: Surveyjson = new Surveyjson(null);
+  surveys: Survey[];
+  survey: Survey;
   mode = 'survey';
   surveyName: string;
-  // property: SurveyProperty = {
-  //   allowBack: true,
-  //   allowReview: true,
-  //   autoMove: false,  // if true, it will move to next question automatically when answered.
-  //   duration: 60,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
-  //   pageSize: 3,
-  //   requiredAll: false,  // indicates if you must answer all the questions before submitting.
-  //   richText: false,
-  //   shuffleQuestions: false,
-  //   shuffleOptions: false,
-  //   showClock: false,
-  //   showPager: true,
-  //   theme: 'none'
-  // };
-
   pager = {
     index: 0,
     size: 1,
     count: 1
   };
-  // timer: any = null;
-  // startTime: Date;
-  // endTime: Date;
-  // ellapsedTime = '00:00';
-  // duration = '';
-
   constructor(
     private surveyService: SurveyService,
     route: ActivatedRoute) {
@@ -54,53 +39,39 @@ export class AboutComponent extends BasePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.surveys = this.surveyService.getAll();
-    this.surveyName = this.surveys[0].id;
+    // hard coded json survey
+    this.surveysjson = this.surveyService.getAll();
+    this.surveyName = this.surveysjson[0].id;
     this.loadSurvey(this.surveyName);
+
+
+    //this.getSurvey(this.survey);
   }
 
   loadSurvey(surveyName: string) {
     this.surveyService.get(surveyName).subscribe(res => {
-      this.survey = new Survey(res);
-      this.pager.count = this.survey.questions.length;
-      // this.startTime = new Date();
-      // this.timer = setInterval(() => { this.tick(); }, 1000);
-      // this.duration = this.parseTime(this.property.duration);
+      this.surveyjson = new Surveyjson(res);
+      this.pager.count = this.surveyjson.questions.length;
     });
     this.mode = 'survey';
   }
 
-  // tick() {
-  //   const now = new Date();
-  //   const diff = (now.getTime() - this.startTime.getTime()) / 1000;
-  //   if (diff >= this.property.duration) {
-  //     this.onSubmit();
-  //   }
-  //   this.ellapsedTime = this.parseTime(diff);
-  // }
-
-  // parseTime(totalSeconds: number) {
-  //   let mins: string | number = Math.floor(totalSeconds / 60);
-  //   let secs: string | number = Math.round(totalSeconds % 60);
-  //   mins = (mins < 10 ? '0' : '') + mins;
-  //   secs = (secs < 10 ? '0' : '') + secs;
-  //   return `${mins}:${secs}`;
-  // }
-
-  get filteredQuestions() {
-    return (this.survey.questions) ? this.survey.questions.slice(this.pager.index, this.pager.index + this.pager.size) : [];
+  private getSurvey(survey: Survey): void {
+    this.surveyService.getSurvey(survey).subscribe(data => {
+      this.survey = data.survey;
+    })
   }
 
-  onSelect(question: Question, choice: Choice) {
+  get filteredQuestions() {
+    return (this.surveyjson.questions) ? this.surveyjson.questions.slice(this.pager.index, this.pager.index + this.pager.size) : [];
+  }
+
+  onSelect(question: Questionjson, choice: Choicejson) {
       question.choices.forEach((c) => {
         if (c._id !== choice._id) {
           c.selected = false;
         }
       });
-
-    // if (this.property.autoMove) {
-    //   this.goTo(this.pager.index + 1);
-    // }
   }
 
   goTo(index: number) {
@@ -110,20 +81,9 @@ export class AboutComponent extends BasePageComponent implements OnInit {
     }
   }
 
-  // isAnswered(question: Question) {
-  //   return question.choices.find(c => c.selected) ? 'Answered' : 'Not Answered';
-  // }
-
-  // isCorrect(question: Question) {
-  //   return question.choices.every(c => c.selected === c.isAnswer) ? 'correct' : 'wrong';
-  // };
-
   onSubmit() {
     const answers = [];
-    this.survey.questions.forEach(c => answers.push({ surveyId: this.survey._id, questionId: c._id, answered: c.answered }));
-
-    // Post your data to the server here. answers contains the questionId and the users' answer.
-    console.log(this.survey.questions);
+    this.surveyjson.questions.forEach(c => answers.push({ surveyId: this.surveyjson._id, questionId: c._id}));
     this.mode = 'result';
   }
 }

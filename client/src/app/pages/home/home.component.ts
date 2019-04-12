@@ -9,6 +9,7 @@ import { BasePageComponent } from 'src/app/partials/base-page/base-page.componen
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from 'src/app/services/survey.service';
 import { BehaviorSubject } from 'rxjs';
+import { Survey } from 'src/app/models';
 
 
 @Component({
@@ -18,10 +19,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HomeComponent extends BasePageComponent implements OnInit {
 
-  @Input() surveyName: string;
-  surveys: any[];
-  private pathSource = new BehaviorSubject(window.location.pathname);
-  currentPath = this.pathSource.asObservable();
+  surveys: Survey[];
 
   constructor(
     route: ActivatedRoute,
@@ -30,6 +28,15 @@ export class HomeComponent extends BasePageComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.surveys = this.surveyService.getAll();
+    this.surveys = new Array<Survey>();
+    this.displaySurveyList();
+  }
+
+  displaySurveyList(): void {
+    this.surveyService.getList().subscribe(data => {
+      if (data.success) {
+        this.surveys = data.surveyList;
+      }
+    })
   }
 }
