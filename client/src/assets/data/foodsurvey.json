@@ -1,0 +1,85 @@
+{
+    "id": 2,
+    "name": "Food Survey",
+    "description": "What's your opinion about food?",
+    "questions": [
+        {
+            "id": 1010,
+            "name": "Do you like vegetables?",
+            "choices": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Yes"
+                },
+                {
+                    "id": 1056,
+                    "questionId": 1010,
+                    "name": "No"
+                },
+                {
+                    "id": 1057,
+                    "questionId": 1010,
+                    "name": "Neutral"
+                },
+                {
+                    "id": 1058,
+                    "questionId": 1010,
+                    "name": "Prefer not to answer"
+                }
+            ]
+        },
+        {
+            "id": 1011,
+            "name": "Do you like meat?",
+            "choices": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Yes"
+                },
+                {
+                    "id": 1056,
+                    "questionId": 1010,
+                    "name": "No"
+                },
+                {
+                    "id": 1057,
+                    "questionId": 1010,
+                    "name": "Neutral"
+                },
+                {
+                    "id": 1058,
+                    "questionId": 1010,
+                    "name": "Prefer not to answer"
+                }
+            ]
+        },
+        {
+            "id": 1012,
+            "name": "How many meals do you have per day?",
+            "choices": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Three"
+                },
+                {
+                    "id": 1057,
+                    "questionId": 1010,
+                    "name": "Two"
+                },
+                {
+                    "id": 1056,
+                    "questionId": 1010,
+                    "name": "One"
+                },
+                {
+                    "id": 1058,
+                    "questionId": 1010,
+                    "name": "I don't eat"
+                }
+            ]
+        }
+    ]
+}

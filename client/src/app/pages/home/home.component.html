@@ -19,52 +19,23 @@
       />
     </p>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <div class="profileCard">
-            <img
-              src="/assets/SamplePics/SampleSurveys/CFIA.png"
-              alt=""
-              class="profilePic"
-            />
-            <p class="myTitle">Food Safety</p>
-            <p>Sponsored by Canadian Food Inspection Agency</p>
-          </div>
-          <a class="btn btn-outline-secondary" href="/about" role="button"
-            >Begin Survey</a
-          >
+    <div class="row">
+      <div
+        class="col-4 col-sm-4 col-md-4 col-lg-4" [(ngModel)]="surveyName"
+        *ngFor="let survey of surveys"
+      >
+        <div class="profileCard">
+          <img
+            src="/assets/SamplePics/SampleSurveys/CFIA.png"
+            alt=""
+            class="profilePic"
+          />
+          <p class="myTitle">{{ survey.name }}</p>
+          <p>Sponsored by Canadian Food Inspection Agency</p>
         </div>
-        <div class="col-sm">
-          <div class="profileCard">
-            <img
-              src="/assets/SamplePics/SampleSurveys/unfccc.png"
-              alt=""
-              class="profilePic"
-            />
-            <p class="myTitle">Climate Change</p>
-            <p>
-              Sponsored by United Nations Framework Convention on Climate Change
-            </p>
-          </div>
-          <a class="btn btn-outline-secondary" href="/about" role="button"
-            >Begin Survey</a
-          >
-        </div>
-        <div class="col-sm">
-          <div class="profileCard">
-            <img
-              src="/assets/SamplePics/SampleSurveys/esrb.png"
-              alt=""
-              class="profilePic"
-            />
-            <p class="myTitle">Video Games</p>
-            <p>Sponsored by ESRB</p>
-          </div>
-          <a class="btn btn-outline-secondary" href="/about" role="button"
-            >Begin Survey</a
-          >
-        </div>
+        <a class="btn btn-outline-secondary" href="/about" role="button"
+          >Begin Survey</a
+        >
       </div>
     </div>
   </div>
