@@ -4,12 +4,11 @@ let mongoose = require('mongoose');
 let surveySchema = mongoose.Schema({
     surveyName: String,
     surveyDescription: String,
-    surveyQuestion: [{
-        question: String,
-        choice1: String,
-        choice2: String,
-        choice3: String,
-        choice4: String
+    questions: [{
+        questionDescription: String,
+        choices: [{
+            choiceDescription: String
+        }]
     }]
 },
 {

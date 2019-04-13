@@ -26,12 +26,13 @@ module.exports.processAddPage = (req, res, next) => {
         "surveyName": req.body.surveyName,
         "surveyDescription": req.body.surveyDescription,
         "$push": {
-            "surveyQuestion": {
-                "question": req.body.question,
-                "choice1": req.body.choice1,
-                "choice2": req.body.choice2,
-                "choice3": req.body.choice3,
-                "choice4": req.body.choice4
+            "questions": {
+                "questionDescription": req.body.questionDescription,
+                "$push": {
+                    "choices": {
+                        "choiceDescription": req.body.choiceDescription
+                    } 
+                }
             }
         }
     });
