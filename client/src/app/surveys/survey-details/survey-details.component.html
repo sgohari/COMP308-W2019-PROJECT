@@ -1,0 +1,76 @@
+ <!-- Content for the Details Page -->
+ <div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <h1>{{ title }}</h1>
+
+            <form class="form" (submit)="onDetailsPageSubmit()">
+                <div class="form-group">
+                    <label for="SurveyNameTextField">Survey Name</label>
+                    <input type="text" class="form-control"
+                    id="SurveyNameTextField"
+                    placeholder="Enter Survey Name"
+                    name="surveyName"
+                    [(ngModel)]="survey.surveyName"
+                    value="{{ survey.surveyName }}"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="SurveyDescriptionTextField">Survey Description</label>
+                    <input type="text" class="form-control"
+                    id="SurveyDescriptionTextField"
+                    placeholder="Enter Survey Description"
+                    name="surveyDescription"
+                    [(ngModel)]="survey.surveyDescription"
+                    value="{{ survey.surveyDescription }}"
+                    required>
+                </div>
+
+                <!-- This should populate questions array, so there are some things to be iterated -->
+                <button routerLink="/mysurveys/survey-list/add" type="button" class="btn btn-primary" (click)="newQuestion()">
+                  <i class="fas fa-edit"></i> Add New Question
+                </button>
+
+                <div *ngFor="let question of questions; let i = index">
+                  <div class="form-group">
+                    <label for="QuestionDescriptionTextField{{i}}"></label>
+                    <input type="text" class="form-control"
+                    id="QuestionDescriptionTextField{{i}}"
+                    placeholder="Enter Question Description"
+                    name="questionDescription{{i}}"
+                    [(ngModel)]="question.questionDescription"
+                    value="{{ question.questionDescription}}"
+                    required>
+                  </div>
+
+                  <button routerLink="/mysurveys/survey-list/add" type="button" class="btn btn-primary" (click)="newChoice()">
+                    <i class="fas fa-edit"></i> Add New Choice
+                  </button>
+
+                  <div *ngFor="let choice of choices; let i = index">
+                    <div class="form-group">
+                      <label for="ChoiceDescriptionTextField{{i}}"></label>
+                      <input type="text" class="form-control"
+                      id="ChoiceDescriptionTextField{{i}}"
+                      placeholder="Enter Choice Description"
+                      name="choiceDescription{{i}}"
+                      [(ngModel)]="choice.choiceDescription"
+                      value="{{ choice.choiceDescription }}"
+                      required>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">
+                <i class="fas fa-edit"></i> {{ title }}</button>
+                <a routerLink="/mysurveys/survey-list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel</a>
+            </form>
+
+
+        </div>
+    </div>
+  </div>
