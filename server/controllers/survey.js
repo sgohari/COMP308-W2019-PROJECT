@@ -24,6 +24,7 @@ module.exports.processAddPage = (req, res, next) => {
 
     let newSurvey = surveyModel({
         "surveyName": req.body.surveyName,
+        "surveyDescription": req.body.surveyDescription,
         "$push": {
             "surveyQuestion": {
                 "question": req.body.question,
