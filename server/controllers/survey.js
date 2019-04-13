@@ -2,12 +2,11 @@ let express = require('express');
 let router = express.Router();
 let jwt = require('jsonwebtoken');
 
-<<<<<<< HEAD
 //create reference to the Schema (DB)
 
 let surveyModel = require('../models/survey');
 
-module.displaySurveyQuestions =  (req, res, next ) => {
+module.exports.displaySurveyQuestions =  (req, res, next ) => {
 
     surveyModel.find((err, surveyQuestion) => {
 
@@ -17,23 +16,10 @@ module.displaySurveyQuestions =  (req, res, next ) => {
         else {
             res.json({success : true, msg : 'Survey', surveyQuestion: surveyQuestion, user: req.user});
 
-=======
-// create a reference to the db schema
-let surveyModel = require('../models/survey');
-
-module.exports.displaySurveyList = (req, res, next) =>{
-    surveyModel.find((err, surveyList) => {
-        if(err) {
-            return console.error(err);
-        }
-        else {
-           res.json({success: true, msg: 'Survey ', surveyList: surveyList});
->>>>>>> 57ef0de852a125f07eab109b272afdcebc697c6b
         }
     });
 }
 
-<<<<<<< HEAD
 module.exports.displayAddQuestionsPage = (req, res, next ) => {
     
     res.json({ success: true, msg: 'Question Add page displyed'});
@@ -50,6 +36,7 @@ module.exports.processAddQuestionsPage = (req, res, next ) =>{
     });
 
     surveyModel.create(newQuestions, (err, surveyQuestion ) => {
+        
 
         if(err){
             console.log(err);
@@ -57,32 +44,66 @@ module.exports.processAddQuestionsPage = (req, res, next ) =>{
         }
         else{
             res.json({success: true, msg: 'Question is added!!'});
-=======
-module.exports.displayAddPage = (req, res, next) => {
-    res.json({success: true, msg: 'Successfully Displayed Add Page'});
-}
-
-module.exports.processAddPage = (req, res, next) => {
-
-    let newSurvey = surveyModel({
-        "name": req.body.name,
-        "description": req.body.description,
-        "questions": req.body.questions,
-        "questionName": req.body.qName,
-        "choices": req.body.choices,
-        "choiceName": req.body.cName
-
+        }
     });
 
-    surveyModel.create(newSurvey, (err, surveyModel) => {
+}
+
+
+module.exports.displayQuestionEditPage = (req, res, next) => {
+    let id = req.params.id;
+
+    surveyModel.findById(id, (err, surveyObject) => {
+        if(err) {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            res.json({success: true, msg: 'Successfully Displayed Edited ', contact: contactObject});
+        }
+    });
+}
+
+
+module.exports.processQuestionEditPage = (req, res, next) => {
+    let id = req.params.id;
+
+    let updatedSurvey = surveyModel({
+        "_id": id,
+        "question1": req.body.question1,
+        "question2": req.body.question2,
+        "question3": req.body.question3,
+        "question4": req.body.question4,
+        "question5": req.body.question5
+    });
+
+    surveyModel.update({_id: id}, updatedSurvey, (err) => {
         if(err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.json({success: true, msg: 'Successfully Added New Survey'});
->>>>>>> 57ef0de852a125f07eab109b272afdcebc697c6b
+            res.json({success: true, msg: 'Successfully Edited Survey', survey: updatedSurvey});
+        }
+    })
+}
+
+
+module.exports.performDelete = (req, res, next) => {
+    let id = req.params.id;
+
+    surveyModel.remove({_id: id}, (err) => {
+        if(err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            res.json({success: true, msg: 'Successfully Deleted Survey question'});
         }
     });
 }
+
+        
+        
 
