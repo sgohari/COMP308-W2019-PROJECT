@@ -9,8 +9,6 @@ import { BasePageComponent } from 'src/app/partials/base-page/base-page.componen
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from 'src/app/services/survey.service';
 import { BehaviorSubject } from 'rxjs';
-import { Survey } from 'src/app/models';
-
 
 @Component({
   selector: 'app-home',
@@ -19,7 +17,6 @@ import { Survey } from 'src/app/models';
 })
 export class HomeComponent extends BasePageComponent implements OnInit {
 
-  surveys: Survey[];
 
   constructor(
     route: ActivatedRoute,
@@ -28,15 +25,8 @@ export class HomeComponent extends BasePageComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.surveys = new Array<Survey>();
-    this.displaySurveyList();
   }
 
   displaySurveyList(): void {
-    this.surveyService.getList().subscribe(data => {
-      if (data.success) {
-        this.surveys = data.surveyList;
-      }
-    })
   }
 }

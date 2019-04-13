@@ -7,7 +7,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasePageComponent } from 'src/app/partials/base-page/base-page.component';
 import { ActivatedRoute } from '@angular/router';
-import { Survey, Choice, Question } from 'src/app/models';
 import { SurveyService } from 'src/app/services/survey.service';
 import { Surveyjson } from 'src/app/models/surveyjson';
 import { Questionjson } from 'src/app/models/questionjson';
@@ -23,8 +22,6 @@ export class AboutComponent extends BasePageComponent implements OnInit {
 
   surveysjson: any[];
   surveyjson: Surveyjson = new Surveyjson(null);
-  surveys: Survey[];
-  survey: Survey;
   mode = 'survey';
   surveyName: string;
   pager = {
@@ -54,12 +51,6 @@ export class AboutComponent extends BasePageComponent implements OnInit {
       this.pager.count = this.surveyjson.questions.length;
     });
     this.mode = 'survey';
-  }
-
-  private getSurvey(survey: Survey): void {
-    this.surveyService.getSurvey(survey).subscribe(data => {
-      this.survey = data.survey;
-    })
   }
 
   get filteredQuestions() {

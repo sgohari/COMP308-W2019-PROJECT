@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
-import { Survey } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -33,14 +32,14 @@ export class SurveyService {
     return this.http.get<any>(this.endpoint, this.httpOptions);
   }
 
-  public getSurvey(survey: Survey): Observable<any> {
-    return this.http.get<any>(this.endpoint + survey._id, this.httpOptions);
-  }
+  // public getSurvey(survey: Survey): Observable<any> {
+  //   return this.http.get<any>(this.endpoint + survey._id, this.httpOptions);
+  // }
 
-  public addSurvey(survey: Survey): Observable<any> {
-    this.loadToken();
-    return this.http.post<any>(this.endpoint + 'add', survey, this.httpOptions);
-  }
+  // public addSurvey(survey: Survey): Observable<any> {
+  //   this.loadToken();
+  //   return this.http.post<any>(this.endpoint + 'add', survey, this.httpOptions);
+  // }
 
   private loadToken() {
     const token = localStorage.getItem('id_token');

@@ -25,8 +25,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
-import { SurveysComponent } from './survey/surveys/surveys.component';
-import { SurveyDetailsComponent } from './survey/survey-details/survey-details.component';
 
 // Services
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
@@ -58,8 +56,6 @@ export function jwtTokenGetter() {
 
     RegisterComponent,
     LoginComponent,
-    SurveyDetailsComponent,
-    SurveysComponent,
 
   ],
   imports: [
