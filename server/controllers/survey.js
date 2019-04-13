@@ -11,7 +11,7 @@ module.exports.displaySurveyList = (req, res, next) =>{
             return console.error(err);
         }
         else {
-           res.json({success: true, msg: 'Survey ', surveyList: surveyList});
+           res.json({success: true, msg: 'Contact List Displayed Successfully', surveyList: surveyList});
         }
     });
 }
@@ -23,13 +23,16 @@ module.exports.displayAddPage = (req, res, next) => {
 module.exports.processAddPage = (req, res, next) => {
 
     let newSurvey = surveyModel({
-        "name": req.body.name,
-        "description": req.body.description,
-        "questions": req.body.questions,
-        "questionName": req.body.qName,
-        "choices": req.body.choices,
-        "choiceName": req.body.cName
-
+        "surveyName": req.body.surveyName,
+        "$push": {
+            "surveyQuestion": {
+                "question": req.body.question,
+                "choice1": req.body.choice1,
+                "choice2": req.body.choice2,
+                "choice3": req.body.choice3,
+                "choice4": req.body.choice4
+            }
+        }
     });
 
     surveyModel.create(newSurvey, (err, surveyModel) => {
@@ -38,7 +41,7 @@ module.exports.processAddPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.json({success: true, msg: 'Successfully Added New Survey'});
+            res.json({success: true, msg: 'Successfully Added New Contact'});
         }
     });
 }

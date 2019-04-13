@@ -19,11 +19,18 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
   {path: 'about', component: AboutComponent, data: {title: 'About'}},
   {path: 'mysurveys', component: MySurveysComponent, data: {title: 'My Surveys'}, canActivate: [AuthGuard]},
   {path: 'reports', component: ReportsComponent, data: {title: 'Survey Result Reports'}},
+
+  // Surveys
+  {path: 'mysurveys/survey-list', component: SurveyListComponent, data: {title: 'Survey List'}, canActivate: [AuthGuard]},
+  {path: 'mysurveys/survey-list/add', component: SurveyDetailsComponent, data: {title: 'Add a Survey'}, canActivate: [AuthGuard]},
 
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Register'}},
