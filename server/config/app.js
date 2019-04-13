@@ -33,6 +33,7 @@ mongoDB.once('open', ()=> {
 
 let indexRouter = require('../routes/index');
 let surveyRouter = require('../routes/survey');
+let answerRouter = require('../routes/answers');
 
 
 let app = express();
@@ -95,14 +96,10 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
 passport.use(strategy);
 
 
-<<<<<<< HEAD
-app.use('/api', indexRouter); 
-app.use('/api/surveys', passport.authenticate('jwt', {session: false}), surveyRouter); 
-=======
 app.use('/api', indexRouter);
-app.use('/api/contact-list', passport.authenticate('jwt', {session: false}), contactRouter); 
+//app.use('/api/contact-list', passport.authenticate('jwt', {session: false}), contactRouter); 
 app.use('api/survey-list', passport.authenticate('jwt', {session: false}), surveyRouter);
->>>>>>> 159390066e5487160abad8bc9df345c003247dcd
+app.use('api/answer-list', passport.authenticate('jwt', {session:false}), answerRouter);
 app.get('*', (req, res) => {
   res.sendfile(path.join(__dirname, '../../public/index.html'));
 });

@@ -34,7 +34,6 @@ export class MySurveysComponent implements OnInit {
     this.title = this.activatedRoute.snapshot.data.title;
 
     this.activatedRoute.params.subscribe(params => {
-      this.survey._id = params.id;
     });
   }
 /*

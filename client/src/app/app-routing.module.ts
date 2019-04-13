@@ -19,12 +19,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
-<<<<<<< HEAD
-import { SurveysComponent } from './survey/surveys/surveys.component';
-=======
-import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
-import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
->>>>>>> 159390066e5487160abad8bc9df345c003247dcd
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
@@ -32,14 +26,6 @@ const routes: Routes = [
   {path: 'mysurveys', component: MySurveysComponent, data: {title: 'My Surveys'}, canActivate: [AuthGuard]},
   {path: 'reports', component: ReportsComponent, data: {title: 'Survey Result Reports'}},
 
-<<<<<<< HEAD
-  {path: 'mysurveys/surveys', component: SurveysComponent, data: {title: 'Some Surveys'}, canActivate: [AuthGuard] },
-=======
-  // Surveys
-  {path: 'mysurveys/survey-list', component: SurveyListComponent, data: {title: 'Survey List'}, canActivate: [AuthGuard]},
-  {path: 'mysurveys/survey-list/add', component: SurveyDetailsComponent, data: {title: 'Add a Survey'}, canActivate: [AuthGuard]},
-
->>>>>>> 159390066e5487160abad8bc9df345c003247dcd
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Register'}},
   {path: 'logout', redirectTo: '/login', pathMatch: 'full'},
