@@ -1,0 +1,38 @@
+<!-- Author: Tom Tsiliopoulos
+     Project Part 2 Modified by: Team Musketeer
+     Members: Zeyu Ma 300737060
+              Syed Nasir Gohary 300937424
+              Abubakir Myrzaly 300931945
+              Sushmita Nandalan 300923159  -->
+<app-base-page></app-base-page>
+<div class="container">
+  <div class="divMain">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <h1>Survey List</h1>
+        <table class="table table-bordered table-striped table-hover">
+          <!-- Header Row-->
+          <tr>
+            <th class="text-center">Survey Name</th>
+            <th class="text-center">Take a survey</th>
+          </tr>
+
+          <!-- Repeatable Template Row -->
+          <tr *ngFor="let survey of surveys">
+            <td class="text-center">{{ survey.surveyName }}</td>
+            <td class="text-center">
+              <a routerLink="/about/{{ survey._id }}" class="btn btn-primary"
+                ><i class="fas fa-pencil-alt"></i> Take a survey</a
+              >
+            </td>
+
+            <!-- <td class="text-center">
+                              <a routerLink="/mysurveys/survey-list/delete/{{ contact._id }}"
+                                  class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                              </td> -->
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
