@@ -25,6 +25,7 @@ import { ContactDeleteComponent } from './contacts/contact-delete/contact-delete
 // Surveys
 import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
 import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+import { ReportExportComponent } from './export/report-export/report-export.component';
 
 // Services
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
@@ -33,6 +34,7 @@ import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt'
 
 // Route Guards
 import { AuthGuard } from './guards/auth.guard';
+
 
 
 export function jwtTokenGetter() {
@@ -57,7 +59,8 @@ export function jwtTokenGetter() {
     ContactDetailsComponent,
     ContactDeleteComponent,
     SurveyListComponent,
-    SurveyDetailsComponent
+    SurveyDetailsComponent,
+    ReportExportComponent
   ],
   imports: [
     BrowserModule,

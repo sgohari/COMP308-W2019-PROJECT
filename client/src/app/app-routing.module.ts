@@ -18,6 +18,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
 import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+import { ReportExportComponent } from './export/report-export/report-export.component';
 
 
 const routes: Routes = [
@@ -32,11 +33,17 @@ const routes: Routes = [
   {path: 'contact/contact-list/edit/:id', component: ContactDetailsComponent, data: {title: 'Edit Contact'}, canActivate: [AuthGuard]},
   {path: 'contact/contact-list/delete/:id', component: ContactDeleteComponent, data: {title: 'Add Contact'}, canActivate: [AuthGuard]},
 
+  // Surveys
+
   {path: 'mysurveys/survey-list', component: SurveyListComponent, data: {title: 'Survey List'}, canActivate: [AuthGuard]},
   {path: 'mysurveys/survey-list/add', component: SurveyDetailsComponent, data: {title: 'Add a Survey'}, canActivate: [AuthGuard]},
 
   {path: 'mysurveys/survey-list/:id', component: SurveyListComponent, data: {title: 'Survey Detail'}, canActivate: [AuthGuard]},
   {path: 'about/:id', component: AboutComponent, data: {title: 'Take Survey'}},
+
+  {path: 'export/report-export', component: ReportExportComponent, data: {title: 'Report Export'}},
+
+  // Users
 
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Register'}},
