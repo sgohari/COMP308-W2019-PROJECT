@@ -8,6 +8,9 @@ let surveySchema = mongoose.Schema({
     question3: String,
     question4: String,
     question5: String,
+    start: Date,
+    current: Date,
+    end: Date
 },
 {
     collection: "surveysIII"

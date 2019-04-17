@@ -14,22 +14,22 @@
           <!-- Header Row-->
           <tr>
             <th class="text-center">Survey Name</th>
-            <th class="text-center">Take a survey</th>
+            <th class="text-center">Start Date</th>
+            <th class="text-center">End Date</th>
+            <th class="text-center">Availability</th>
           </tr>
 
           <!-- Repeatable Template Row -->
           <tr *ngFor="let survey of surveys">
             <td class="text-center">{{ survey.surveyName }}</td>
+            <td class="text-center">{{ survey.start }}</td>
+            <td class="text-center">{{ survey.end }}</td>
             <td class="text-center">
-              <a routerLink="/about/{{ survey._id }}" class="btn btn-primary"
+              <a *ngIf="survey.start < survey.current && survey.current < survey.end"
+              routerLink="/about/{{ survey._id }}" class="btn btn-primary"
                 ><i class="fas fa-pencil-alt"></i> Take a survey</a
               >
             </td>
-
-            <!-- <td class="text-center">
-                              <a routerLink="/mysurveys/survey-list/delete/{{ contact._id }}"
-                                  class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
-                              </td> -->
           </tr>
         </table>
       </div>

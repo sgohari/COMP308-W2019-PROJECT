@@ -13,7 +13,7 @@ import { Md5 } from 'ts-md5/dist/md5';
 export class SurveyDetailsComponent implements OnInit {
   title: string;
   survey: Survey;
-
+  today = new Date(Date.now());
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -33,6 +33,7 @@ export class SurveyDetailsComponent implements OnInit {
 
   onDetailsPageSubmit(): void {
 
+    this.survey.current = this.today;
     this.surveyListService.addSurvey(this.survey).subscribe(data => {
       if (data.success) {
         this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});

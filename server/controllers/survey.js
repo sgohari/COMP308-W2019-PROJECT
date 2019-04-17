@@ -28,7 +28,10 @@ module.exports.processAddPage = (req, res, next) => {
             "question2": req.body.question2,
             "question3": req.body.question3,
             "question4": req.body.question4,
-            "question5": req.body.question5
+            "question5": req.body.question5,
+            "start": req.body.start,
+            "current": req.body.current,
+            "end": req.body.end
     });
 
     surveyModel.create(newSurvey, (err, surveyModel) => {
