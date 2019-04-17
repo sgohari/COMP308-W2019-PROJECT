@@ -20,6 +20,7 @@ export class SurveyListService {
   private surveypoint = 'http://localhost:3000/about/';
   private homepoint = 'http://localhost:3000/home';
   private reportpoint = 'http://localhost:3000/reports';
+  private exportpoint = 'http://localhost:3000/api/report-export/';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -56,8 +57,13 @@ export class SurveyListService {
     return this.http.get<any>(this.homepoint, this.httpOptions);
   }
 
-  // For services page
-  public getServiceList(): Observable<any> {
+  // For reports page
+  public getReportList(): Observable<any> {
     return this.http.get<any>(this.reportpoint, this.httpOptions);
+  }
+
+  // For exporting report
+  public getSpecificReport(answer: Answers): Observable<any> {
+    return this.http.get<any>(this.exportpoint + answer._id, this.httpOptions);
   }
 }

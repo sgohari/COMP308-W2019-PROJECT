@@ -16,6 +16,21 @@ module.exports.displayAnswerList = (req, res, next) =>{
     });
 }
 
+module.exports.exportSpecificReport = (req, res, next) => {
+    let id = req.params.id;
+    answerModel.find((err, answerList) => {
+        // return the report if it is equal to the id we sent
+        answerList = answerList.filter(report => report._id == id);
+        if(err) {
+            return console.error(err);
+        }
+        else {
+            
+           res.json({success: true, msg: 'Answer List Displayed Successfully', answerList: answerList});
+        }
+    })
+}
+
 // module.exports.displayAddPage = (req, res, next) => {
 //     res.json({success: true, msg: 'Successfully Displayed Add Page'});
 // }

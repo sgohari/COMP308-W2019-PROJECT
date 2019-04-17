@@ -103,6 +103,7 @@ app.use('/api/survey-list', surveyRouter);
 app.use('/home', surveyRouter);
 app.use('/about', answerRouter);
 app.use('/reports', answerRouter);
+app.use('/api/report-export', answerRouter);
 app.get('*', (req, res) => {
   res.sendfile(path.join(__dirname, '../../public/index.html'));
 });

@@ -42,6 +42,7 @@ const routes: Routes = [
   {path: 'about/:id', component: AboutComponent, data: {title: 'Take Survey'}},
 
   {path: 'export/report-export', component: ReportExportComponent, data: {title: 'Report Export'}},
+  {path: 'export/report-export/:id', component: ReportExportComponent, data: {title: 'Report Export Page'}},
 
   // Users
 

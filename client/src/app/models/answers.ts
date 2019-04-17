@@ -1,4 +1,5 @@
 export class Answers {
+  // tslint:disable-next-line:variable-name
   _id: string;
   surveyName: string;
   question1: string;

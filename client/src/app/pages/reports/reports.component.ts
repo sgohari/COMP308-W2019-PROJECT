@@ -29,7 +29,7 @@ export class ReportsComponent extends BasePageComponent implements OnInit {
   }
 
   displayAnswerList(): void {
-    this.surveyListService.getServiceList().subscribe(data => {
+    this.surveyListService.getReportList().subscribe(data => {
       console.log(this.answers);
       this.answers = data.answerList;
     });
