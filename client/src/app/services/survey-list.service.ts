@@ -16,7 +16,7 @@ export class SurveyListService {
   private surveypoint = 'https://comp308-w2019-project.herokuapp.com/about/';
   private homepoint = 'https://comp308-w2019-project.herokuapp.com/home';
   private reportpoint = 'https://comp308-w2019-project.herokuapp.com/reports';
-  private exportpoint = 'https://comp308-w2019-project.herokuapp.com/report-export/';
+  private exportpoint = 'https://comp308-w2019-project.herokuapp.com/api/report-export/';
   // private endpoint = 'http://localhost:3000/api/survey-list/';
   // private surveypoint = 'http://localhost:3000/about/';
   // private homepoint = 'http://localhost:3000/home';
