@@ -75,7 +75,7 @@ export class ReportExportComponent implements OnInit {
 
   public getReport(report) {
     // tslint:disable-next-line:no-unused-expression
-    new AngularCsv(this.retrieveReport, 'Report: ' + this.report.surveyName, this.csvReports);
+    new AngularCsv(this.retrieveReport, 'Report: ' + report.surveyName, this.csvReports);
   }
 
 }
