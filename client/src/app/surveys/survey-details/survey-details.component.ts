@@ -50,7 +50,7 @@ export class SurveyDetailsComponent implements OnInit {
         this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
         this.router.navigate(['/mysurveys/survey-list']);
       } else {
-        this.flashMessage.show('Add Contact Failed', {cssClass: 'alert-danger', timeOut: 3000});
+        this.flashMessage.show('Add Survey Failed', {cssClass: 'alert-danger', timeOut: 3000});
         this.router.navigate(['/mysurveys/survey-list']);
       }
     });
