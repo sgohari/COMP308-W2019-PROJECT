@@ -11,40 +11,41 @@ module.exports.displaySurveyList = (req, res, next) =>{
             return console.error(err);
         }
         else {
-           res.json({success: true, msg: 'Survey List Displayed Successfully', surveyList: surveyList});
+           res.json({success: true, msg: 'Contact List Displayed Successfully', surveyList: surveyList});
         }
     });
 }
 
-module.exports.displayQuestionAddPage = (req, res, next) => {
-
-    res.json({success: true, msg: 'Successfully Displayed Add Survey Page'});
+module.exports.displayAddPage = (req, res, next) => {
+    res.json({success: true, msg: 'Successfully Displayed Add Page'});
 }
 
-module.exports.processQuestionAddPage = (req, res, next) => {
-    let id = req.params.id;
+module.exports.processAddPage = (req, res, next) => {
 
     let newSurvey = surveyModel({
-        "_id": id,
-        "question1": req.body.question1,
-        "question2": req.body.question2,
-        "question3": req.body.question3,
-        "question4": req.body.question4,
-        "question5": req.body.question5
+            "surveyName": req.body.surveyName,
+            "question1": req.body.question1,
+            "question2": req.body.question2,
+            "question3": req.body.question3,
+            "question4": req.body.question4,
+            "question5": req.body.question5,
+            "start": req.body.start,
+            "current": req.body.current,
+            "end": req.body.end
     });
 
-    surveyModel.create({_id: id}, newSurvey, (err) => {
+    surveyModel.create(newSurvey, (err, surveyModel) => {
         if(err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.json({success: true, msg: 'Successfully Added New Survey Questions'});
+            res.json({success: true, msg: 'Successfully Added New Survey'});
         }
     });
 }
 
-module.exports.displayQuestionEditPage = (req, res, next) => {
+module.exports.displaySingleSurvey = (req, res, next) => {
     let id = req.params.id;
 
     surveyModel.findById(id, (err, surveyObject) => {
@@ -54,51 +55,7 @@ module.exports.displayQuestionEditPage = (req, res, next) => {
         }
         else
         {
-            res.json({success: true, msg: 'Successfully Displayed survey to Edit', survey: surveyObject});
+            res.json({success: true, msg: 'Successfully Displayed Survey to Take', survey: surveyObject});
         }
     });
 }
-
-
-module.exports.processQuestionEditPage = (req, res, next) => {
-    let id = req.params.id;
-
-    let updateModel = surveyModel({
-        "_id": id,
-        "question1": req.body.question1,
-        "question2": req.body.question2,
-        "question3": req.body.question3,
-        "question4": req.body.question4,
-        "question5": req.body.question5
-    });
-
-    surveyModel.update({_id: id}, updateModel, (err) => {
-        if(err) {
-            console.log(err);
-            res.end(err);
-        }
-        else {
-            res.json({success: true, msg: 'Successfully Edited Survey', survey: updateModel});
-        }
-    })
-}
-
-module.exports.performDelete = (req, res, next) => {
-    let id = req.params.id;
-
-    surveyModel.remove({_id: id}, (err) => {
-        if(err) {
-            console.log(err);
-            res.end(err);
-        }
-        else {
-            res.json({success: true, msg: 'Successfully Deleted Survey'});
-        }
-    });
-}
-
-
-
-        
-        
-

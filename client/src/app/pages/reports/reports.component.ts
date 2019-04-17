@@ -1,13 +1,9 @@
-// Author: Tom Tsiliopoulos
-//      Project Part 2 Modified by: Team Musketeer
-//      Members: Zeyu Ma 300737060
-//               Syed Nasir Gohary 300937424
-//               Abubakir Myrzaly 300931945
-//               Sushmita Nandalan 300923159
 import { Component, OnInit } from '@angular/core';
 import { BasePageComponent } from 'src/app/partials/base-page/base-page.component';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Answers } from 'src/app/models/answers';
+import { SurveyListService } from 'src/app/services/survey-list.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-reports',
@@ -15,19 +11,27 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent extends BasePageComponent implements OnInit {
+  answers: Answers[];
 
   constructor(
     route: ActivatedRoute,
-    private authService: AuthService
+    private surveyListService: SurveyListService,
+    private flashMessage: FlashMessagesService,
+    private router: Router
     ) {
     super(route);
   }
 
   ngOnInit() {
+    this.answers = new Array<Answers>();
+
+    this.displayAnswerList();
   }
 
-  isLoggedIn(): boolean {
-    return this.authService.loggedIn();
+  displayAnswerList(): void {
+    this.surveyListService.getReportList().subscribe(data => {
+      console.log(this.answers);
+      this.answers = data.answerList;
+    });
   }
-
 }

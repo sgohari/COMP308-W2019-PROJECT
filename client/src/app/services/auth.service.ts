@@ -1,10 +1,3 @@
-// Author: Tom Tsiliopoulos
-//      Project Part 2 Modified by: Team Musketeer
-//      Members: Zeyu Ma 300737060
-//               Syed Nasir Gohary 300937424
-//               Abubakir Myrzaly 300931945
-//               Sushmita Nandalan 300923159
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -18,7 +11,7 @@ export class AuthService {
   user: User;
   private authToken: any;
 
-  private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/';
+  private endpoint = 'https://comp308-w2019-lesson10b.herokuapp.com/api/';
   //private endpoint = 'http://localhost:3000/api/';
 
   private httpOptions = {

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Survey } from 'src/app/models';
+import { Survey } from 'src/app/models/survey';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { SurveyListService } from 'src/app/services/survey-list.service';
-import { Questions } from 'src/app/models/questions';
-import { Choices } from 'src/app/models/choices';
+import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-survey-details',
@@ -14,9 +13,7 @@ import { Choices } from 'src/app/models/choices';
 export class SurveyDetailsComponent implements OnInit {
   title: string;
   survey: Survey;
-  questions: Questions[];
-  choices: Choices[];
-
+  today = new Date(Date.now());
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -28,23 +25,15 @@ export class SurveyDetailsComponent implements OnInit {
   ngOnInit() {
     this.title = this.activateRoute.snapshot.data.title;
     this.survey = new Survey();
-    this.questions = new Array<Questions>();
-    this.choices = new Array<Choices>();
 
     this.activateRoute.params.subscribe(params => {
       this.survey._id = params.id;
     });
   }
 
-  newQuestion(): void{
-    this.questions.push(new Questions());
-  }
-
-  newChoice(): void {
-    this.choices.push(new Choices());
-  }
-
   onDetailsPageSubmit(): void {
+
+    this.survey.current = this.today;
     this.surveyListService.addSurvey(this.survey).subscribe(data => {
       if (data.success) {
         this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});

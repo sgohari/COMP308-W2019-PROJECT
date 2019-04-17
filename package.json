@@ -1,5 +1,5 @@
 {
-  "name": "comp308-w2019-project",
+  "name": "comp308-w2019-lesson10b",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -19,12 +19,14 @@
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
     "jsonwebtoken": "^8.5.0",
+    "md5": "^2.2.1",
     "mongoose": "^5.4.9",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^5.0.1"
+    "passport-local-mongoose": "^5.0.1",
+    "ts-md5": "^1.2.4"
   },
   "description": "Mongo and Mongoose Demo",
   "main": "server.js",

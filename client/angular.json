@@ -30,8 +30,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
-              "src/app.js"
+              "node_modules/@fortawesome/fontawesome-free/js/all.min.js"
             ],
             "es5BrowserSupport": true
           },
