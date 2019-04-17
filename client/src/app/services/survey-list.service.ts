@@ -13,12 +13,13 @@ export class SurveyListService {
   private authToken: any = null;
 
   //private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/survey-list';
-  private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/survey-list/';
-  private surveypoint = 'https://comp308-w2019-project.herokuapp.com/about/';
-  private homepoint = 'https://comp308-w2019-project.herokuapp.com/home';
-  //private endpoint = 'http://localhost:3000/api/survey-list/';
-  //private surveypoint = 'http://localhost:3000/about/';
-  //private homepoint = 'http://localhost:3000/home';
+  //private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/survey-list/';
+  //private surveypoint = 'https://comp308-w2019-project.herokuapp.com/about/';
+  //private homepoint = 'https://comp308-w2019-project.herokuapp.com/home';
+  private endpoint = 'http://localhost:3000/api/survey-list/';
+  private surveypoint = 'http://localhost:3000/about/';
+  private homepoint = 'http://localhost:3000/home';
+  private reportpoint = 'http://localhost:3000/reports';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -38,11 +39,11 @@ export class SurveyListService {
 
   // For about page
   public getSurvey(survey: Survey): Observable<any> {
-    return this.http.get<any>(this.surveypoint + survey._id, this.httpOptions);
+    return this.http.get<any>(this.endpoint + survey._id, this.httpOptions);
   }
 
-  public postAnswer(answer: Answers, survey: Survey): Observable<any> {
-    return this.http.post<any>(this.surveypoint + survey._id, answer, this.httpOptions);
+  public postAnswer(answer: Answers): Observable<any> {
+    return this.http.post<any>(this.surveypoint + 'add', answer, this.httpOptions);
   }
 
   public addSurvey(survey: Survey): Observable<any> {
@@ -53,5 +54,10 @@ export class SurveyListService {
   // For home page
   public getHomeList(): Observable<any> {
     return this.http.get<any>(this.homepoint, this.httpOptions);
+  }
+
+  // For services page
+  public getServiceList(): Observable<any> {
+    return this.http.get<any>(this.reportpoint, this.httpOptions);
   }
 }

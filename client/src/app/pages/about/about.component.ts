@@ -44,7 +44,13 @@ export class AboutComponent extends BasePageComponent implements OnInit {
   }
 
   onAboutPageSubmit(): void {
-    this.surveyListService.postAnswer(this.answer, this.survey).subscribe(data => {
+    this.answer.surveyName = this.survey.surveyName;
+    this.answer.question1 = this.survey.question1;
+    this.answer.question2 = this.survey.question2;
+    this.answer.question3 = this.survey.question3;
+    this.answer.question4 = this.survey.question4;
+    this.answer.question5 = this.survey.question5;
+    this.surveyListService.postAnswer(this.answer).subscribe(data => {
       if (data.success) {
         this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
         this.router.navigate(['/home']);

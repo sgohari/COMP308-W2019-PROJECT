@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MySurveysComponent } from './pages/mysurveys/mysurveys.component';
-import { ServicesComponent } from './pages/services/services.component';
+import { ReportsComponent } from './pages/reports/reports.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
   {path: 'about', component: AboutComponent, data: {title: 'About'}},
   {path: 'mysurveys', component: MySurveysComponent, data: {title: 'My Surveys'}},
-  {path: 'services', component: ServicesComponent, data: {title: 'Services'}},
+  {path: 'reports', component: ReportsComponent, data: {title: 'Reports'}},
   {path: 'contact', component: ContactComponent, data: {title: 'Contact'}},
 
   {path: 'contact/contact-list', component: ContactListComponent, data: {title: 'Contact List'}},
@@ -35,6 +35,7 @@ const routes: Routes = [
   {path: 'mysurveys/survey-list', component: SurveyListComponent, data: {title: 'Survey List'}, canActivate: [AuthGuard]},
   {path: 'mysurveys/survey-list/add', component: SurveyDetailsComponent, data: {title: 'Add a Survey'}, canActivate: [AuthGuard]},
 
+  {path: 'mysurveys/survey-list/:id', component: SurveyListComponent, data: {title: 'Survey Detail'}, canActivate: [AuthGuard]},
   {path: 'about/:id', component: AboutComponent, data: {title: 'Take Survey'}},
 
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},

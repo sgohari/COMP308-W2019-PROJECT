@@ -42,16 +42,10 @@
         >
       </li>
       <li *ngIf="isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/services"
-          ><i class="fa fa-lg fa-birthday-cake"></i> Services</a
+        <a class="nav-link" routerLink="/reports"
+          ><i class="fa fa-tasks" aria-hidden="true"></i> Reports</a
         >
       </li>
-      <li *ngIf="isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/contact"
-          ><i class="fa fa-lg fa-phone"></i> Contact</a
-        >
-      </li>
-
 
         <li *ngIf="isLoggedIn()" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"><i class="fas fa-lg fa-user"></i>
           Welcome, {{ user.displayName }}</li>

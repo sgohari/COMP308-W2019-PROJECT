@@ -13,7 +13,7 @@ import { BasePageComponent } from './partials/base-page/base-page.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MySurveysComponent } from './pages/mysurveys/mysurveys.component';
-import { ServicesComponent } from './pages/services/services.component';
+import { ReportsComponent } from './pages/reports/reports.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
@@ -48,7 +48,7 @@ export function jwtTokenGetter() {
     HomeComponent,
     AboutComponent,
     MySurveysComponent,
-    ServicesComponent,
+    ReportsComponent,
     ContactComponent,
     PageNotFoundComponent,
     ContactListComponent,

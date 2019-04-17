@@ -3,7 +3,7 @@ let router = express.Router();
 let jwt = require('jsonwebtoken');
 
 // create a reference to the db schema
-let answerModel = require('../models/answer');
+let answerModel = require('../models/answers');
 
 module.exports.displayAnswerList = (req, res, next) =>{
     answerModel.find((err, answerList) => {
@@ -23,10 +23,16 @@ module.exports.displayAnswerList = (req, res, next) =>{
 module.exports.processAddPage = (req, res, next) => {
 
     let newAnswer = answerModel({
+            "surveyName": req.body.surveyName,
+            "question1": req.body.question1,
             "answer1": req.body.answer1,
+            "question2": req.body.question2,
             "answer2": req.body.answer2,
+            "question3": req.body.question3,
             "answer3": req.body.answer3,
+            "question4": req.body.question4,
             "answer4": req.body.answer4,
+            "question5": req.body.question5,
             "answer5": req.body.answer5,
     });
 
@@ -36,7 +42,7 @@ module.exports.processAddPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.json({success: true, msg: 'Successfully Added New Answers'});
+            res.json({success: true, msg: 'Thank you for taking the survey'});
         }
     });
 }
