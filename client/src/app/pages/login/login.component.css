@@ -1,0 +1,66 @@
+#login {
+  width:450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 3em;
+   /*set to a negative number 1/2 of your width*/
+  border: 2.5px ridge rgb(119, 190, 228);;
+  border-radius: 5px;
+  background-color: #f3f3f380;
+
+}
+h4{
+  padding-top: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+fieldset{
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px;
+
+}
+
+label{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-kerning: 18px;
+
+}
+#btnLogin{
+
+  padding: 10px 10px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(199, 193, 193);
+  width: 150px;
+  text-transform: uppercase;
+  font-weight: bold;
+  float: left;
+  background-color: rgb(61, 149, 197);
+
+}
+#btnCancel{
+  padding: 10px 10px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(199, 193, 193);
+  width: 150px;
+  text-transform: uppercase;
+  font-weight: bold;
+  float: right;
+  background-color:gray;
+}
