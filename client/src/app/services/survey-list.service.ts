@@ -18,13 +18,6 @@ export class SurveyListService {
   private reportpoint = 'https://comp308-w2019-project.herokuapp.com/reports';
   private exportpoint = 'https://comp308-w2019-project.herokuapp.com/api/report-export/';*/
 
-<<<<<<< HEAD
-  private endpoint = 'http://localhost:3000/api/survey-list/';
-  private surveypoint = 'http://localhost:3000/about/';
-  private homepoint = 'http://localhost:3000/home';
-  private reportpoint = 'http://localhost:3000/reports';
-  private exportpoint = 'http://localhost:3000/api/report-export/';
-=======
   private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/survey-list/';
   private surveypoint = 'https://comp308-w2019-project.herokuapp.com/about/';
   private homepoint = 'https://comp308-w2019-project.herokuapp.com/home';
@@ -35,7 +28,6 @@ export class SurveyListService {
   // private homepoint = 'http://localhost:3000/home';
   // private reportpoint = 'http://localhost:3000/reports';
   // private exportpoint = 'http://localhost:3000/api/report-export/';
->>>>>>> cf252b43f4907f499a9e613ad085500a45e2a76f
 
   private httpOptions = {
     headers: new HttpHeaders({

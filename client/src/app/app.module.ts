@@ -27,12 +27,6 @@ import { SurveyListComponent } from './surveys/survey-list/survey-list.component
 import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
 import { ReportExportComponent } from './export/report-export/report-export.component';
 
-
-// Surveys
-import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
-import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
-import { ReportExportComponent } from './export/report-export/report-export.component';
-
 // Services
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
@@ -62,12 +56,6 @@ export function jwtTokenGetter() {
     ContactListComponent,
     RegisterComponent,
     LoginComponent,
-<<<<<<< HEAD
-
-=======
-    ContactDetailsComponent,
-    ContactDeleteComponent,
->>>>>>> cf252b43f4907f499a9e613ad085500a45e2a76f
     SurveyListComponent,
     SurveyDetailsComponent,
     ReportExportComponent
