@@ -16,9 +16,16 @@ import { MySurveysComponent } from './pages/mysurveys/mysurveys.component';
 import { ReportsComponent } from './pages/reports/reports.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
+import { ContactDeleteComponent } from './contacts/contact-delete/contact-delete.component';
+
+// Surveys
+import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+import { ReportExportComponent } from './export/report-export/report-export.component';
 
 
 // Surveys
@@ -52,10 +59,15 @@ export function jwtTokenGetter() {
     ReportsComponent,
     ContactComponent,
     PageNotFoundComponent,
-
+    ContactListComponent,
     RegisterComponent,
     LoginComponent,
+<<<<<<< HEAD
 
+=======
+    ContactDetailsComponent,
+    ContactDeleteComponent,
+>>>>>>> cf252b43f4907f499a9e613ad085500a45e2a76f
     SurveyListComponent,
     SurveyDetailsComponent,
     ReportExportComponent
