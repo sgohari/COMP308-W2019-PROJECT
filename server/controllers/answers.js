@@ -5,100 +5,75 @@ let jwt = require('jsonwebtoken');
 // create a reference to the db schema
 let answerModel = require('../models/answers');
 
-module.exports.displayAnswers = (req, res, next) =>{
-    answerModel.find((err, answersList) => {
+module.exports.displayAnswerList = (req, res, next) =>{
+    answerModel.find((err, answerList) => {
         if(err) {
             return console.error(err);
         }
         else {
-           res.json({success: true, msg: 'Answers are displayedSuccessfully', answers: answersList});
+           res.json({success: true, msg: 'Answer List Displayed Successfully', answerList: answerList});
         }
     });
 }
 
-module.exports.displayAnswerAddPage = (req, res, next) => {
-
-    res.json({success: true, msg: 'Successfully Displayed Add Answer Page'});
-}
-
-module.exports.processAnswersAddPage = (req, res, next) => {
+module.exports.exportSpecificReport = (req, res, next) => {
     let id = req.params.id;
-
-    let newAnswers = answerModel({
-        "_id": id,
-        "answer1": req.body.answer1,
-        "answer2": req.body.answer2,
-        "answer3": req.body.answer3,
-        "answer4": req.body.answer4,
-        "answer5": req.body.answer5
-    });
-
-    answerModel.create({_id: id}, newAnswers, (err) => {
+    answerModel.find((err, answerList) => {
+        // return the report if it is equal to the id we sent
+        answerList = answerList.filter(report => report._id == id);
         if(err) {
-            console.log(err);
-            res.end(err);
+            return console.error(err);
         }
         else {
-            res.json({success: true, msg: 'Successfully added New Survey Answers'});
-        }
-    });
-}
-
-module.exports.displayAnswerEditPage = (req, res, next) => {
-    let id = req.params.id;
-
-    answerModel.findById(id, (err, answrObject) => {
-        if(err) {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            res.json({success: true, msg: 'Successfully Displayed survey to Edit', answersList: answrObject});
-        }
-    });
-}
-
-
-module.exports.processAnswerEditPage = (req, res, next) => {
-    let id = req.params.id;
-
-    let updateAnswers = surveyModel({
-        "_id": id,
-        "answer1": req.body.answer1,
-        "answer2": req.body.answer2,
-        "answer3": req.body.answer3,
-        "answer4": req.body.answer4,
-        "answer5": req.body.answer5
-    });
-
-    answerModel.update({_id: id}, updateAnswers, (err) => {
-        if(err) {
-            console.log(err);
-            res.end(err);
-        }
-        else {
-            res.json({success: true, msg: 'Successfully Edited answer', answersList: updateAnswers});
+            
+           res.json({success: true, msg: 'Answer List Displayed Successfully', answerList: answerList});
         }
     })
 }
 
-module.exports.performDelete = (req, res, next) => {
-    let id = req.params.id;
+// module.exports.displayAddPage = (req, res, next) => {
+//     res.json({success: true, msg: 'Successfully Displayed Add Page'});
+// }
 
-    answerModel.remove({_id: id}, (err) => {
+module.exports.processAddPage = (req, res, next) => {
+
+    let newAnswer = answerModel({
+            "surveyName": req.body.surveyName,
+            "question1": req.body.question1,
+            "answer1": req.body.answer1,
+            "question2": req.body.question2,
+            "answer2": req.body.answer2,
+            "question3": req.body.question3,
+            "answer3": req.body.answer3,
+            "question4": req.body.question4,
+            "answer4": req.body.answer4,
+            "question5": req.body.question5,
+            "answer5": req.body.answer5,
+    });
+
+    answerModel.create(newAnswer, (err, answerModel) => {
         if(err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.json({success: true, msg: 'Successfully Deleted answer!!!'});
+            res.json({success: true, msg: 'Thank you for taking the survey'});
         }
     });
 }
 
+// module.exports.displaySingleSurvey = (req, res, next) => {
+//     let id = req.params.id;
 
-
-        
-        
+//     surveyModel.findById(id, (err, surveyObject) => {
+//         if(err) {
+//             console.log(err);
+//             res.end(err);
+//         }
+//         else
+//         {
+//             res.json({success: true, msg: 'Successfully Displayed Survey to Take', survey: surveyObject});
+//         }
+//     });
+// }
 

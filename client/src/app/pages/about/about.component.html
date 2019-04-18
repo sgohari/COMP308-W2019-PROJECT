@@ -1,0 +1,84 @@
+<!-- Author: Tom Tsiliopoulos
+     Project Part 2 Modified by: Team Musketeer
+     Members: Zeyu Ma 300737060
+              Syed Nasir Gohary 300937424
+              Abubakir Myrzaly 300931945
+              Sushmita Nandalan 300923159  -->
+ <!-- Content for the Details Page -->
+ <div class="container">
+  <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+          <h1>{{ title }}</h1>
+
+          <form class="form" (submit)="onAboutPageSubmit()">
+            <p>{{ survey.surveyName }}</p>
+
+            <p>{{ survey.question1 }}</p>
+            <div class="form-group">
+                <label for="Answer1TextField">Answer 1</label>
+                <input type="text" class="form-control"
+                id="Answer1TextField"
+                placeholder="Enter Answer 1"
+                name="answer1"
+                [(ngModel)]="answer.answer1"
+                value="{{ answer.answer1 }}"
+                required>
+            </div>
+
+            <p>{{ survey.question2 }}</p>
+            <div class="form-group">
+                <label for="Answer2TextField">Answer 2</label>
+                <input type="text" class="form-control"
+                id="Answer2TextField"
+                placeholder="Enter Answer 2"
+                name="answer2"
+                [(ngModel)]="answer.answer2"
+                value="{{ answer.answer2 }}"
+                required>
+            </div>
+
+            <p>{{ survey.question3}}</p>
+            <div class="form-group">
+                <label for="Answer3TextField">Answer 3</label>
+                <input type="text" class="form-control"
+                id="Answer3TextField"
+                placeholder="Enter Answer 3"
+                name="answer3"
+                [(ngModel)]="answer.answer3"
+                value="{{ answer.answer3 }}"
+                required>
+            </div>
+
+            <p>{{ survey.question4}}</p>
+            <div class="form-group">
+                <label for="Answer4TextField">Answer 4</label>
+                <input type="text" class="form-control"
+                id="Answer4TextField"
+                placeholder="Enter Answer 4"
+                name="answer4"
+                [(ngModel)]="answer.answer4"
+                value="{{ answer.answer4 }}"
+                required>
+            </div>
+
+            <p>{{ survey.question5}}</p>
+            <div class="form-group">
+                <label for="Answer5TextField">Answer 5</label>
+                <input type="text" class="form-control"
+                id="Answer5TextField"
+                placeholder="Enter Answer 5"
+                name="answer5"
+                [(ngModel)]="answer.answer5"
+                value="{{ answer.answer5 }}"
+                required>
+            </div>
+            <button type="submit" class="btn btn-primary">
+            <i class="fas fa-edit"></i> Submit Survey</button>
+            <a routerLink="/home" class="btn btn-warning">
+                <i class="fas fa-undo"></i> Cancel</a>
+        </form>
+
+
+      </div>
+  </div>
+</div>

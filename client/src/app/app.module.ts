@@ -1,9 +1,3 @@
-// Author: Tom Tsiliopoulos
-//      Project Part 2 Modified by: Team Musketeer
-//      Members: Zeyu Ma 300737060
-//               Syed Nasir Gohary 300937424
-//               Abubakir Myrzaly 300931945
-//               Sushmita Nandalan 300923159
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,21 +14,25 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MySurveysComponent } from './pages/mysurveys/mysurveys.component';
 import { ReportsComponent } from './pages/reports/reports.component';
-
+import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+
+
+// Surveys
+import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+import { ReportExportComponent } from './export/report-export/report-export.component';
 
 // Services
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 
-
 // Route Guards
 import { AuthGuard } from './guards/auth.guard';
-
 
 
 
@@ -52,11 +50,15 @@ export function jwtTokenGetter() {
     AboutComponent,
     MySurveysComponent,
     ReportsComponent,
-
+    ContactComponent,
     PageNotFoundComponent,
 
     RegisterComponent,
     LoginComponent,
+ ,
+    SurveyListComponent,
+    SurveyDetailsComponent,
+    ReportExportComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SurveyListService } from 'src/app/services/survey-list.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-import { Survey } from 'src/app/models';
+import { Survey } from 'src/app/models/survey';
 
 @Component({
   selector: 'app-survey-list',
@@ -19,6 +19,9 @@ export class SurveyListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.surveys = new Array<Survey>();
+
+    this.displaySurveyList();
   }
 
   displaySurveyList(): void {

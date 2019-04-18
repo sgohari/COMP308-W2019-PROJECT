@@ -1,16 +1,21 @@
 let mongoose = require('mongoose');
 
 // create a model class
-let answerSchema = mongoose.Schema({
-  "answer1": String,
-  "answer2": String,
-  "answer3": String,
-  "answer4": String,
-  "answer5": String
-
+let surveySchema = mongoose.Schema({
+    surveyName: String,
+    question1: String,
+    answer1: String,
+    question2: String,
+    answer2: String,
+    question3: String,
+    answer3: String,
+    question4: String,
+    answer4: String,
+    question5: String,
+    answer5: String
 },
 {
-    collection: "first"
+    collection: "answersIII"
 });
 
-module.exports = mongoose.model('answers', answerSchema);
+module.exports = mongoose.model('answer', surveySchema);
