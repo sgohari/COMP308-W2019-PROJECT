@@ -3,7 +3,6 @@ import { Survey } from 'src/app/models/survey';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { SurveyListService } from 'src/app/services/survey-list.service';
-import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-survey-details',

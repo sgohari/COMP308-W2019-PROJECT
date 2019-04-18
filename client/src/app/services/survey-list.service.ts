@@ -12,16 +12,16 @@ export class SurveyListService {
   private user: User;
   private authToken: any = null;
 
-  private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/survey-list/';
-  private surveypoint = 'https://comp308-w2019-project.herokuapp.com/about/';
-  private homepoint = 'https://comp308-w2019-project.herokuapp.com/home';
-  private reportpoint = 'https://comp308-w2019-project.herokuapp.com/reports';
-  private exportpoint = 'https://comp308-w2019-project.herokuapp.com/api/report-export/';
-  // private endpoint = 'http://localhost:3000/api/survey-list/';
-  // private surveypoint = 'http://localhost:3000/about/';
-  // private homepoint = 'http://localhost:3000/home';
-  // private reportpoint = 'http://localhost:3000/reports';
-  // private exportpoint = 'http://localhost:3000/api/report-export/';
+  // private endpoint = 'https://comp308-w2019-project.herokuapp.com/api/survey-list/';
+  // private surveypoint = 'https://comp308-w2019-project.herokuapp.com/about/';
+  // private homepoint = 'https://comp308-w2019-project.herokuapp.com/home';
+  // private reportpoint = 'https://comp308-w2019-project.herokuapp.com/reports';
+  // private exportpoint = 'https://comp308-w2019-project.herokuapp.com/api/report-export/';
+  private endpoint = 'http://localhost:3000/api/survey-list/';
+  private surveypoint = 'http://localhost:3000/about/';
+  private homepoint = 'http://localhost:3000/home';
+  private reportpoint = 'http://localhost:3000/reports';
+  private exportpoint = 'http://localhost:3000/api/report-export/';
 
   private httpOptions = {
     headers: new HttpHeaders({
