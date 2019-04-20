@@ -92,3 +92,67 @@ table.table-fit thead th, table.table-fit tfoot th {
 table.table-fit tbody td, table.table-fit tfoot td {
   width: auto !important;
 }
+#btnLink{
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  width: 200px;
+  text-transform: uppercase;
+  font-weight: bold;
+  float: left;
+  background-color: rgb(61, 149, 197);
+
+}
+
+#btnAdd{
+
+  padding: 10px 10px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(199, 193, 193);
+  width: 200px;
+  text-transform: uppercase;
+  font-weight: bold;
+  float: left;
+  background-color: rgb(61, 149, 197);
+
+}
+#btnCancel{
+  padding: 10px 10px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(199, 193, 193);
+  width: 150px;
+  text-transform: uppercase;
+  font-weight: bold;
+  float: right;
+  background-color:gray;
+}
+
+
+
+#questions{
+  padding-top: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+#answers{
+  padding-top: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}

@@ -11,15 +11,15 @@
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
         <h1>Survey Questions</h1>
-        <a class="btn btn-primary" routerLink="/mysurveys/survey-list/add" role="button">
-          <i class="fas fa-plus-circle"></i> Add a Survey</a>
+        <a class="btn btn-primary" routerLink="/mysurveys/survey-list/add" role="button" id="btnAdd">
+          <i class="fas fa-plus-circle"></i> Create a Survey</a>
         <br>
 
         <table class="table table-responsive">
           <!-- Header Row-->
           <tr>
 
-            <th scope="col">Survey Name</th>
+            <th id="questions" scope="col">Survey Name</th>
             <th scope="col">Question 1</th>
             <th scope="col">Question 2</th>
             <th scope="col">Question 3</th>
@@ -41,7 +41,7 @@
             <td>{{ survey.start }}</td>
             <td>{{ survey.end }}</td>
             <td>
-              <a routerLink="/about/{{ survey._id }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Take a
+              <a routerLink="/about/{{ survey._id }}" class="btn btn-primary" id="btnLink"><i class="fas fa-pencil-alt" ></i> Take a
                 survey</a>
             </td>
           </tr>
