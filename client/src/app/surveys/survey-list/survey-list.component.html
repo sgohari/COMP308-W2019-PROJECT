@@ -5,6 +5,8 @@
     Abubakir Myrzaly 300931945
     Sushmita Nandalan 300923159  -->
 <div id="surveyList">
+
+
   <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
@@ -12,36 +14,40 @@
         <a class="btn btn-primary" routerLink="/mysurveys/survey-list/add" role="button">
           <i class="fas fa-plus-circle"></i> Add a Survey</a>
         <br>
-        <table class="blueTable">
+
+        <table class="table table-responsive">
           <!-- Header Row-->
           <tr>
-            <th class="text-center">Survey Name</th>
-            <th class="text-center">Question 1</th>
-            <th class="text-center">Question 2</th>
-            <th class="text-center">Question 3</th>
-            <th class="text-center">Question 4</th>
-            <th class="text-center">Question 5</th>
-            <th class="text-center">Start Date</th>
-            <th class="text-center">End Date</th>
-            <th class="text-center">Take a survey</th>
+
+            <th scope="col">Survey Name</th>
+            <th scope="col">Question 1</th>
+            <th scope="col">Question 2</th>
+            <th scope="col">Question 3</th>
+            <th scope="col">Question 4</th>
+            <th scope="col">Question 5</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col"></th>
           </tr>
 
           <!-- Repeatable Template Row -->
           <tr *ngFor="let survey of surveys">
-            <td class="text-center">{{ survey.surveyName }}</td>
-            <td class="text-center">{{ survey.question1 }}</td>
-            <td class="text-center">{{ survey.question2 }}</td>
-            <td class="text-center">{{ survey.question3 }}</td>
-            <td class="text-center">{{ survey.question4 }}</td>
-            <td class="text-center">{{ survey.question5 }}</td>
-            <td class="text-center">{{ survey.start }}</td>
-            <td class="text-center">{{ survey.end }}</td>
-            <td class="text-center">
+            <td>{{ survey.surveyName }}</td>
+            <td>{{ survey.question1 }}</td>
+            <td>{{ survey.question2 }}</td>
+            <td>{{ survey.question3 }}</td>
+            <td>{{ survey.question4 }}</td>
+            <td>{{ survey.question5 }}</td>
+            <td>{{ survey.start }}</td>
+            <td>{{ survey.end }}</td>
+            <td>
               <a routerLink="/about/{{ survey._id }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Take a
                 survey</a>
             </td>
           </tr>
+
         </table>
+
         &nbsp;&nbsp;
       </div>
     </div>

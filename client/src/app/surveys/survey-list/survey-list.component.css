@@ -14,16 +14,20 @@ table.blueTable {
   background-color: #EEEEEE;
   margin-left: auto;
   margin-right: auto;
-  width: 1020px;
   text-align: left;
   border-collapse: collapse;
+  width: 100%
+}
+table.blueTable th{
+  font-size: 12px;
+  align-self: auto;
 }
 table.blueTable td, table.blueTable th {
-  border: 1px solid #AAAAAA;
+  border: 2px solid rgba(170, 170, 170, 0.87);
   padding: 3px 2px;
 }
 table.blueTable tbody td {
-  font-size: 13px;
+  font-size: 10px;
 }
 table.blueTable tr:nth-child(even) {
   background: #D0E4F5;
@@ -75,4 +79,16 @@ h1{
 
   text-transform: uppercase;
   font-weight: bold;
+}
+
+
+table.table-fit {
+  width: auto !important;
+  table-layout: auto !important;
+}
+table.table-fit thead th, table.table-fit tfoot th {
+  width: auto !important;
+}
+table.table-fit tbody td, table.table-fit tfoot td {
+  width: auto !important;
 }
