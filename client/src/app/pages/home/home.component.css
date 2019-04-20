@@ -1,0 +1,23 @@
+#homePage{
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 3em;
+   /*set to a negative number 1/2 of your width*/
+  border: 2.5px ridge rgb(119, 190, 228);;
+  border-radius: 5px;
+  background-color: #f3f3f3be;
+}
+#divHome{
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+}
+#p {
+  padding-top: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+
+}

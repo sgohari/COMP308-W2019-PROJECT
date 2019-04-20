@@ -5,80 +5,87 @@
               Abubakir Myrzaly 300931945
               Sushmita Nandalan 300923159  -->
  <!-- Content for the Details Page -->
+ <div id="about">
+   <div id="divAbout">
+      <h1 id="heading">Welcome to the {{ survey.surveyName }} Page</h1>
  <div class="container">
   <div class="row">
       <div class="col-md-offset-3 col-md-6">
-          <h1>{{ title }}</h1>
+
 
           <form class="form" (submit)="onAboutPageSubmit()">
-            <p>{{ survey.surveyName }}</p>
 
-            <p>{{ survey.question1 }}</p>
+
+            <p id="questions">{{ survey.question1 }}</p>
             <div class="form-group">
-                <label for="Answer1TextField">Answer 1</label>
+                <label id="answers" for="Answer1TextField">Answer</label>
                 <input type="text" class="form-control"
                 id="Answer1TextField"
-                placeholder="Enter Answer 1"
+                placeholder="Type your answer"
                 name="answer1"
                 [(ngModel)]="answer.answer1"
                 value="{{ answer.answer1 }}"
                 required>
             </div>
 
-            <p>{{ survey.question2 }}</p>
+            <p id="questions">{{ survey.question2 }}</p>
             <div class="form-group">
-                <label for="Answer2TextField">Answer 2</label>
+                <label id="answers" for="Answer2TextField">Answer</label>
                 <input type="text" class="form-control"
                 id="Answer2TextField"
-                placeholder="Enter Answer 2"
+                placeholder="Type your answer"
                 name="answer2"
                 [(ngModel)]="answer.answer2"
                 value="{{ answer.answer2 }}"
                 required>
             </div>
 
-            <p>{{ survey.question3}}</p>
+            <p id="questions">{{ survey.question3}}</p>
             <div class="form-group">
-                <label for="Answer3TextField">Answer 3</label>
+                <label id="answers" for="Answer3TextField">Answer</label>
                 <input type="text" class="form-control"
                 id="Answer3TextField"
-                placeholder="Enter Answer 3"
+                placeholder="Type your answer"
                 name="answer3"
                 [(ngModel)]="answer.answer3"
                 value="{{ answer.answer3 }}"
-                required>
+                required >
             </div>
 
-            <p>{{ survey.question4}}</p>
+            <p id="questions">{{ survey.question4}}</p>
             <div class="form-group">
-                <label for="Answer4TextField">Answer 4</label>
+                <label id="answers" for="Answer4TextField">Answer</label>
                 <input type="text" class="form-control"
                 id="Answer4TextField"
-                placeholder="Enter Answer 4"
+                placeholder="Type your answer"
                 name="answer4"
                 [(ngModel)]="answer.answer4"
                 value="{{ answer.answer4 }}"
                 required>
             </div>
 
-            <p>{{ survey.question5}}</p>
+            <p id="questions">{{ survey.question5}}</p>
             <div class="form-group">
-                <label for="Answer5TextField">Answer 5</label>
+                <label id="answers" for="Answer5TextField">Answer</label>
                 <input type="text" class="form-control"
                 id="Answer5TextField"
-                placeholder="Enter Answer 5"
+                placeholder="Type your answer"
                 name="answer5"
                 [(ngModel)]="answer.answer5"
                 value="{{ answer.answer5 }}"
                 required>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button id="btnSubmit" type="submit" class="btn btn-primary">
             <i class="fas fa-edit"></i> Submit Survey</button>
-            <a routerLink="/home" class="btn btn-warning">
+            <a routerLink="/home" class="btn btn-warning" id="btnCancel">
                 <i class="fas fa-undo"></i> Cancel</a>
         </form>
-
-
+        &nbsp;    &nbsp;
       </div>
   </div>
+
 </div>
+</div>
+&nbsp;    &nbsp;
+&nbsp;    &nbsp;
+ </div>
